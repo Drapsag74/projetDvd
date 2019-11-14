@@ -27,3 +27,4 @@ bin/*
 .classpath
 .settings/*
 src/main/*
+pom.xml
