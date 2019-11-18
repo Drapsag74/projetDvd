@@ -13,16 +13,18 @@ public class Controleur {
 	}
 	
 	/**
-	 *  
+	 * Reçoit en paramettre un client et une location. Supprime la location du client
 	 * @param client
- 	 * @param location
+	 * Un objet Client
+	 * @param location
+	 * Un objet Location
 	 */
 	public void deletLoc(Client client, Location location) {
 		client.suppLoc(location);
 	}
 	
 	/**
-	 * 
+	 * Reçoit en paramettre un client et un location. Ajoute la location au client
 	 * @param client
 	 * @param location
 	 */
