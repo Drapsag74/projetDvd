@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.MenuPrincipalController">
+   <top>
+      <Label text="Bonjour" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+               <children>
+                  <Button fx:id="boutonEmprunter" mnemonicParsing="false" onAction="#emprunter" prefHeight="100.0" prefWidth="100.0" text="Emprunter" />
+                  <Button fx:id="boutonRendre" mnemonicParsing="false" onAction="#rendre" prefHeight="100.0" prefWidth="100.0" text="Rendre" />
+                  <Button fx:id="boutonProlonger" mnemonicParsing="false" onAction="#prolonger" prefHeight="100.0" prefWidth="100.0" text="Prolonger" />
+               </children>
+            </HBox>
+            <HBox fx:id="imageCarte" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" onMouseClicked="#montrerInformations" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@cb.jpg" />
+                     </image></ImageView>
+                  <Button fx:id="boutonPerte" mnemonicParsing="false" onAction="#declarerPerte" prefHeight="100.0" prefWidth="100.0" text="Perte" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
