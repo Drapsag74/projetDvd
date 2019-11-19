@@ -28,3 +28,4 @@ bin/*
 .settings/*
 src/main/*
 pom.xml
+/bin/
