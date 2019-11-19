@@ -10,6 +10,7 @@ public class Controleur {
 	public Controleur() {
 		listClients= new ArrayList<>();
 		listFilms = new ArrayList<>();
+		System.out.println("teqtrngqjnsdg");
 	}
 	
 	/**

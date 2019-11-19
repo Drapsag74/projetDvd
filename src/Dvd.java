@@ -1,6 +1,7 @@
 
 
 public class Dvd {
+	private static int nbDvd=0;
 	
 	private int id;
 	private Film film;
@@ -8,7 +9,8 @@ public class Dvd {
 
 	public Dvd(int id, Film film) {
 		super();
-		this.id = id;
+		this.id = nbDvd;
+		increment();
 		this.film = film;
 		this.estDispo=true;
 	}
@@ -23,5 +25,9 @@ public class Dvd {
 
 	public void rendu() {
 		this.estDispo=true;
+	}
+	
+	private void increment() {
+		nbDvd++;
 	}
 }

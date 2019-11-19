@@ -3,7 +3,7 @@ import java.util.Date;
 import java.util.List;
 
 public abstract class Client {
-	private static int nbClient;
+	private static int nbClient=0;
 
 	private String nom;
 	private String prenom;
