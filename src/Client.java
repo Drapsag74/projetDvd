@@ -3,7 +3,7 @@ import java.util.Date;
 import java.util.List;
 
 public abstract class Client {
-	private static int nbClient;
+	private static int nbClient=0;
 
 	private String nom;
 	private String prenom;
@@ -17,7 +17,7 @@ public abstract class Client {
 		this.prenom = prenom;
 		this.mail = mail;
 		this.numeroTel = numeroTel;
-		this.id = id;
+		this.id = nbClient;
 		incremente();
 		this.cbNum = cbNum;
 	}
@@ -50,9 +50,9 @@ public abstract class Client {
 	
 	public abstract List<Location> getLocs();
 	
-	public abstract void addLocation(Location l);
-	public abstract void suppLoc(Location l);
-	public abstract boolean LoctaionPossible();
+	protected abstract void addLocation(Location l);
+	protected abstract void suppLoc(Location l);
+	protected abstract boolean LoctaionPossible();
 	
 	
 	class nbLocMax extends ProjetDvdException{ 

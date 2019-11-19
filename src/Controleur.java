@@ -10,6 +10,8 @@ public class Controleur {
 	public Controleur() {
 		listClients= new ArrayList<>();
 		listFilms = new ArrayList<>();
+		init();
+		System.out.println("teqtrngqjnsdg");
 	}
 	
 	/**
@@ -36,9 +38,14 @@ public class Controleur {
 		listClients.add(new ClientVIP("client","1","Client.1@qsdgqsg.fr","0625352624","6549852398749875"));
 		listClients.add(new ClientVIP("client","2","Client.2@qsdgqsg.fr","0658966352","7856469734596453"));
 		listClients.add(new ClientVIP("client","3","Client.3@qsdgqsg.fr","0685741225","6543216549876546"));
-		listFilms.add(new Film("client","3","Client.3@qsdgqsg.fr","0685741225","6543216549876546"));
-		listFilms.add(new Film("client","3","Client.3@qsdgqsg.fr","0685741225","6543216549876546"));
-		listFilms.add(new Film("client","3","Client.3@qsdgqsg.fr","0685741225","6543216549876546"));
+		listFilms.add(new Film("film1",null,null,null));
+		listFilms.add(new Film("film2",null,null,null));
+		listFilms.add(new Film("film3",null,null,null));
+		for(Film f : listFilms) {
+			for(int i=0;i>3;i++) {
+				f.addDvd();
+			}
+		}
 	}
 	
 	public static void main(String[] args) {
