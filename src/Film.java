@@ -1,5 +1,4 @@
 
-
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,8 +23,25 @@ public class Film {
 		this.dvds = new ArrayList<>();
 	}
 	
-	public Dvd getDvdDispo() {
-		return null;
+	public Dvd getDvdDispo() throws PasDeDvdException{
+		if(nbDvdDispo>0) {
+			for(Dvd d : dvds){
+				if(d.estDispo()) {
+					nbDvdDispo--;
+					nbDvdLoue++;
+					return d;
+				}
+			}
+			throw new PasDeDvdException();
+		}else {
+			throw new PasDeDvdException();
+		}
+	}
+	
+	class PasDeDvdException extends ProjetDvdException{ 
+		  public PasDeDvdException(){
+		    System.out.println("Aucun dvd dispo§");
+		  }  
 	}
 
 }
