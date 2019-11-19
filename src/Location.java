@@ -3,18 +3,26 @@
 import java.util.Date;
 
 public class Location {
-
+	private static int nbLoc=0;
 	private int idLoc;
 	private Date dateFin;
 	private int nbProlongement;
 	private Client client;
+	private Dvd dvd;
 
-	public Location(int idLoc, Date dateFin, Client client) {
+	public Location(Date dateFin, Client client,Dvd d) {
 		super();
-		this.idLoc = idLoc;
+		this.idLoc = nbLoc;
+		incramente();
 		this.dateFin = dateFin;
 		this.nbProlongement = 0;
 		this.client = client;
+		this.dvd=d;
+	}
+	
+	public void deletLoc() {
+		dvd.rendu();
+		client.suppLoc(this);
 	}
 
 	@Override
@@ -29,6 +37,10 @@ public class Location {
 		if (idLoc != other.idLoc)
 			return false;
 		return true;
+	}
+	
+	private static void incramente() {
+		nbLoc++;
 	}
 	
 	

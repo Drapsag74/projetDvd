@@ -5,8 +5,8 @@ import java.util.List;
 
 public class ClientVIP extends Client {
 	private List<Location> locs;
-	public ClientVIP(String nom, String prenom, String mail, String numeroTel, int id, String cbNum) {
-		super(nom, prenom, mail, numeroTel, id, cbNum);
+	public ClientVIP(String nom, String prenom, String mail, String numeroTel, String cbNum) {
+		super(nom, prenom, mail, numeroTel, cbNum);
 		this.locs=new ArrayList<>();
 	}
 	
@@ -22,6 +22,19 @@ public class ClientVIP extends Client {
 			}
 		}
 		
+	}
+	
+	protected int nbJour() {
+		return 3;
+	}
+	
+	public boolean LoctaionPossible() {
+		return locs.size()<4;
+	}
+	
+	@Override
+	public List<Location> getLocs() {
+		return locs;
 	}
 
 }
