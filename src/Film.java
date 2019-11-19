@@ -37,6 +37,9 @@ public class Film {
 			throw new PasDeDvdException();
 		}
 	}
+	public void addDvd() {
+		dvds.add(new Dvd(this));
+	}
 	
 	class PasDeDvdException extends ProjetDvdException{ 
 		  public PasDeDvdException(){

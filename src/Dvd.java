@@ -7,7 +7,7 @@ public class Dvd {
 	private Film film;
 	private boolean estDispo;
 
-	public Dvd(int id, Film film) {
+	public Dvd( Film film) {
 		super();
 		this.id = nbDvd;
 		increment();

@@ -10,6 +10,7 @@ public class Controleur {
 	public Controleur() {
 		listClients= new ArrayList<>();
 		listFilms = new ArrayList<>();
+		init();
 		System.out.println("teqtrngqjnsdg");
 	}
 	
@@ -40,6 +41,11 @@ public class Controleur {
 		listFilms.add(new Film("film1",null,null,null));
 		listFilms.add(new Film("film2",null,null,null));
 		listFilms.add(new Film("film3",null,null,null));
+		for(Film f : listFilms) {
+			for(int i=0;i>3;i++) {
+				f.addDvd();
+			}
+		}
 	}
 	
 	public static void main(String[] args) {
