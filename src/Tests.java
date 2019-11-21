@@ -1,44 +1,43 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Tests {
-	
+
 	private static void etatCompte(Client c) {
 		String nature = (c instanceof ClientVIP) ? "VIP" : "CB";;
-		System.out.println("Nature du compte : " + nature);
+		System.out.println("\nNature du compte : " + nature);
 		System.out.println("Location actuel :" );
 		for(int i=0; i < c.getLocs().size(); i++) {
 			System.out.println("Location n°"+i+" : "+c.getLocs().get(i));
 		}
+		System.out.println();
 	}
 	protected static void testLouer(Client c) { //Test de location
-		etatCompte(c);
+		Random r = new Random();
 		Dvd aLouer;
 		System.out.println("Location DVD aléatoire...");
-//		DVD aLouer = DVDDISPO.getRandom()
+		//		aLouer = DVDDISPO.getRandom()
+		System.out.println("Film loué : "+aLouer);
 		c.louer(aLouer);
-		etatCompte(c);
 	}
 
 	private static void testRendre(Client c) {
 		Scanner sc = new Scanner(System.in);
-		etatCompte(c);
 		System.out.println("Index du DVD à rendre ?");
 		int aRendre = sc.nextInt();
 		System.out.println("Rendu...");
 		c.suppLoc(c.getLocs().get(aRendre));
-		etatCompte(c);
 	}
 
 	private static void testLocationMultiple(Client c, int nbLocation) {
-		etatCompte(c);
+		Random r = new Random();
 		Dvd aLouer;
 		System.out.println("Locations de "+nbLocation+" DVDs...");
 		for (int i = 0; i < nbLocation; i++) {
-//			DVD aLouer = DVDDISPO.getRandom()
+			//aLouer = DVDDISPO.getRandom()
 			c.louer(aLouer);
 		}
-		etatCompte(c);
 	}
 
 	public static void main(String[] args) {
@@ -59,7 +58,7 @@ public class Tests {
 				System.out.println(choix);
 				if(choix !=0 && choix!=1) {
 					System.out.println("Choix  invalide");
-					clientTest=null;
+					clientTest = null;
 				}else {
 					clientTest = clients.get(choix);
 				}
@@ -67,13 +66,18 @@ public class Tests {
 
 			do {
 				System.out.println("Choix de test :");
+				System.out.println("e : Etat du compte");
 				System.out.println("l : Test de location");
 				System.out.println("r : Test de rendu");
 				System.out.println("ml : Test de location multiple");
 				System.out.println("q : Quitter programme test ou changer de type de client");
 				choixTest = sc.next();
-				
+
 				switch (choixTest) {
+				case "e":
+					etatCompte(clientTest);
+					break;
+
 				case "l":
 					testLouer(clientTest);
 					break;
@@ -94,8 +98,9 @@ public class Tests {
 
 				case "q":
 					System.out.println("Fin de test");
+					System.out.println("Changer de client ? [O/n]");
+					if(sc.next().equals("n")) return;
 					break;
-
 				default:
 					System.out.println("Choix invalide");
 				}
