@@ -17,7 +17,7 @@ public class ClientVIP extends Client {
 	@Override
 	public void suppLoc(Location l) {
 		for(int i=0;i<locs.size();i++) {
-			if(locs.equals(l)) {
+			if(locs.get(i).equals(l)) {
 				locs.remove(i);
 			}
 		}

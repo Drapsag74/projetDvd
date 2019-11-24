@@ -36,6 +36,7 @@ public abstract class Client {
 	        c.add(Calendar.DATE, nbJour());
 		    date=c.getTime();
 			Location l=new Location(date,this,d);
+			this.addLocation(l);
 		}else {
 			throw new nbLocMax();
 		}

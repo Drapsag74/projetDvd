@@ -30,4 +30,8 @@ public class Dvd {
 	private void increment() {
 		nbDvd++;
 	}
+	
+	public String toString(){
+		return film.toString();
+	}
 }

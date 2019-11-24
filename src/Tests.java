@@ -3,53 +3,62 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Tests {
-
+	
+	static ArrayList<Film> listFilms;
+	
+	private static Dvd getDvdTest() {
+		Random r = new Random();
+		return new Dvd(listFilms.get(r.nextInt(listFilms.size())));
+	}
+	
 	private static void etatCompte(Client c) {
 		String nature = (c instanceof ClientVIP) ? "VIP" : "CB";;
 		System.out.println("\nNature du compte : " + nature);
 		System.out.println("Location actuel :" );
+		System.out.println(c.getLocs().size());
 		for(int i=0; i < c.getLocs().size(); i++) {
 			System.out.println("Location n°"+i+" : "+c.getLocs().get(i));
 		}
 		System.out.println();
 	}
-	protected static void testLouer(Client c) { //Test de location
-		Random r = new Random();
-		Dvd aLouer;
+	private static void testLouer(Client c) throws ProjetDvdException{
+		Dvd aLouer = getDvdTest();
 		System.out.println("Location DVD aléatoire...");
-		//		aLouer = DVDDISPO.getRandom()
-		System.out.println("Film loué : "+aLouer);
+		System.out.println("Film loué : "+aLouer+"\n");
 		c.louer(aLouer);
 	}
 
 	private static void testRendre(Client c) {
-		Scanner sc = new Scanner(System.in);
+		Scanner s = new Scanner(System.in);
 		System.out.println("Index du DVD à rendre ?");
-		int aRendre = sc.nextInt();
-		System.out.println("Rendu...");
+		int aRendre = s.nextInt();
+		System.out.println("Rendu...\n");
 		c.suppLoc(c.getLocs().get(aRendre));
 	}
 
-	private static void testLocationMultiple(Client c, int nbLocation) {
-		Random r = new Random();
-		Dvd aLouer;
+	private static void testLocationMultiple(Client c, int nbLocation) throws ProjetDvdException {
 		System.out.println("Locations de "+nbLocation+" DVDs...");
 		for (int i = 0; i < nbLocation; i++) {
-			//aLouer = DVDDISPO.getRandom()
+			Dvd aLouer = getDvdTest();
 			c.louer(aLouer);
 		}
 	}
 
 	public static void main(String[] args) {
 		ArrayList<Client> clients = new ArrayList<Client>();
-		Client clientTest;
+		listFilms = new ArrayList<Film>();
 		String choixTest;
 		Scanner sc = new Scanner(System.in);
 
 		clients.add(new ClientCB("CB", "Prenom", "nom.prenom@mail.com", "0123456789","1111222233334444"));
 		clients.add(new ClientVIP("VIP", "Prenom", "nom.prenom@mail.com", "0123456789","1111222233334444"));
 
+		for (int i = 0; i < 10; i++) {
+			listFilms.add(new Film("film"+i,null,null,null));
+		}
+
 		while(true) {
+			Client clientTest;
 			do {
 				System.out.println("Type de client à tester ?");
 				System.out.println("0 : CB");
@@ -79,7 +88,11 @@ public class Tests {
 					break;
 
 				case "l":
-					testLouer(clientTest);
+					try {
+						testLouer(clientTest);
+					} catch (ProjetDvdException e1) {
+						e1.printStackTrace();
+					}
 					break;
 
 				case "r":
@@ -93,13 +106,19 @@ public class Tests {
 						System.out.println("Entrer un nombre de location positif");
 						break;
 					}
-					testLocationMultiple(clientTest, nbLocation);
+					try {
+						testLocationMultiple(clientTest, nbLocation);
+					} catch (ProjetDvdException e) {
+						e.printStackTrace();
+					}
 					break;
 
 				case "q":
 					System.out.println("Fin de test");
 					System.out.println("Changer de client ? [O/n]");
-					if(sc.next().equals("n")) return;
+					if(sc.next().equals("n")) {
+						return;
+					}
 					break;
 				default:
 					System.out.println("Choix invalide");
@@ -107,6 +126,7 @@ public class Tests {
 			}while(!choixTest.equals("q"));
 		}
 	}
+	
 }
 
 

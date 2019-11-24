@@ -43,6 +43,9 @@ public class Location {
 		nbLoc++;
 	}
 	
+	public String toString() {
+		return dvd.toString();
+	}
 	
 	
 	
