@@ -40,6 +40,10 @@ public class Film {
 		dvds.add(new Dvd(this));
 	}
 	
+	public String toString() {
+		return titre;
+	}
+	
 	class PasDeDvdException extends ProjetDvdException{ 
 		  public PasDeDvdException(){
 		    System.out.println("Aucun dvd dispo§");
