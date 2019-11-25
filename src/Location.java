@@ -18,6 +18,7 @@ public class Location {
 		this.nbProlongement = 0;
 		this.client = client;
 		this.dvd=d;
+		this.client.paye(Film.PRIX);
 	}
 	
 	public void deletLoc() {
@@ -45,6 +46,15 @@ public class Location {
 	
 	public String toString() {
 		return dvd.toString();
+	}
+	
+	public Film getFilm() {
+		return dvd.getFilm();
+	}
+	
+	public void perte() {
+		dvd.perte();
+		client.suppLoc(this);
 	}
 	
 	

@@ -3,7 +3,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 public class Film {
+	public static float PRIX=5;
 
 	private String titre;
 	private Date date;
@@ -37,6 +39,7 @@ public class Film {
 		}
 	}
 	public void addDvd() {
+		nbDvdDispo++;
 		dvds.add(new Dvd(this));
 	}
 	
@@ -48,6 +51,23 @@ public class Film {
 		  public PasDeDvdException(){
 		    System.out.println("Aucun dvd dispo§");
 		  }  
+	}
+	
+	public String getTitre() {
+		return this.titre;
+	}
+	
+	public void increment() {
+		nbDvdDispo++;
+		nbDvdLoue--;
+	}
+	public void perte(int id) {
+		for(int i=0;i<dvds.size();i++) {
+			if(dvds.get(i).getId()==id) {
+				dvds.remove(i);
+				nbDvdLoue--;
+			}
+		}
 	}
 
 }

@@ -36,4 +36,25 @@ public class ClientCB extends Client {
 		}
 		return locs;
 	}
+	
+	@Override
+	public void paye(float c) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public float getCompte() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public void addCompte(float c) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void perte(Location l) {
+		// TODO Auto-generated method stub
+		
+	}
 }

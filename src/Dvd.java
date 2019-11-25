@@ -25,6 +25,7 @@ public class Dvd {
 
 	public void rendu() {
 		this.estDispo=true;
+		this.film.increment();
 	}
 	
 	private void increment() {
@@ -33,5 +34,16 @@ public class Dvd {
 	
 	public String toString(){
 		return film.toString();
+	}
+	
+	public Film getFilm() {
+		return this.film;
+	}
+	
+	public void perte() {
+		film.perte(id);
+	}
+	public int getId() {
+		return this.id;
 	}
 }

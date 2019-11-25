@@ -43,6 +43,8 @@ public abstract class Client {
 		
 	}
 	
+	public abstract void perte(Location l);
+	
 	private static void incremente() {
 		nbClient++;
 	}
@@ -61,6 +63,9 @@ public abstract class Client {
 		    System.out.println("ne peut pas louer plus de dvd");
 		  }  
 	}
+	public abstract void paye(float c);
+	public abstract float getCompte();
+	public abstract void addCompte(float c);
 	
 	
 
